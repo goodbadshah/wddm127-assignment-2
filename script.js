@@ -82,7 +82,8 @@ app.displaySimilarMovies = (movies) => {
     header.textContent = "You'll LOVE ";
     app.similarMovies.appendChild(header);
     
-    const movie = movies[0];
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    const movie = movies[randomIndex];
     const card = document.createElement('div');
     card.className = 'movieCard';
     
