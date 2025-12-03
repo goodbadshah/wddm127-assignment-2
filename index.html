@@ -5,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Assignment 2 API Test</title>
 </head>
-<body>
-<script>
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjJkODU5ZmVmNTg2MjI4OWVlOGVlZGJjZmE4YWRkYiIsIm5iZiI6MTc2NDE3NTM5NC44MDQsInN1YiI6IjY5MjcyZTIyYTc3N2M0NDVjMzMwY2VjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aEs11GVRsVCDgC-VR-AovDukOzIJu-6ntR4cWnnlIv4'
-  }
-};
-
-fetch('https://api.themoviedb.org/3/search/movie?query=inception&include_adult=false&language=en-US&page=1', options)
-  .then(res => res.json())
-  .then(res => console.log(res))
-  .catch(err => console.error(err));
-</script>
-</body>
+<link rel="stylesheet" href="style.css">
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>"If You Liked BLANK, You'll LOVE..."</h1>
+      </header>
+      <main>
+        <form class="movieForm" action="">
+          <div class="searchBox">
+            <input type="text" placeholder="Enter a movie title" class="movieInput" />
+            <input type="submit" value="Find Similar Movies" />
+          </div>
+        </form>
+        <section class="results">
+          <div class="originalMovie">
+            <h2 class="movieTitle"></h2>
+            <div class="movieDetails"></div>
+          </div>
+          <div class="similarMovies"></div>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>
