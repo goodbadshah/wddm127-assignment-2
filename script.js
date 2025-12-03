@@ -47,6 +47,7 @@ app.getSimilarMovies = (movieId) => {
 };
 
 app.displayOriginalMovie = (movie) => {
+    document.querySelector('.originalMovie').style.display = 'block';
     app.movieTitle.textContent = `You liked: ${movie.title}`;
     
     if (movie.poster_path) {
@@ -78,18 +79,16 @@ app.displaySimilarMovies = (movies) => {
         return;
     }
     
-    const header = document.createElement('h2');
-    header.textContent = "You'll LOVE ";
-    app.similarMovies.appendChild(header);
+    app.similarMovies.style.display = 'block';
     
     const randomIndex = Math.floor(Math.random() * movies.length);
     const movie = movies[randomIndex];
     const card = document.createElement('div');
     card.className = 'movieCard';
     
-    const title = document.createElement('h3');
-    title.textContent = movie.title;
-    card.appendChild(title);
+    const header = document.createElement('h2');
+    header.textContent = "You'll LOVE: " + movie.title;
+    card.appendChild(header);
     
     if (movie.poster_path) {
         const poster = document.createElement('img');
@@ -118,6 +117,8 @@ app.clearResults = () => {
     app.movieTitle.textContent = "";
     app.movieDetails.innerHTML = "";
     app.similarMovies.innerHTML = "";
+    document.querySelector('.originalMovie').style.display = 'none';
+    document.querySelector('.similarMovies').style.display = 'none';
 };
 
 app.formEvent = () => {
