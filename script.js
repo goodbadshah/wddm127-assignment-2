@@ -21,6 +21,7 @@ app.searchMovie = (title) => {
     })
     .then((data) => {
         if (data.results.length === 0) {
+            document.querySelector('.originalMovie').style.display = 'block';
             app.movieTitle.textContent = "D'oh! Try again!";
             return;
         }
@@ -62,11 +63,11 @@ app.displayOriginalMovie = (movie) => {
     }
     
     const releaseDate = document.createElement('p');
-    releaseDate.textContent = `Released: ${movie.release_date ? movie.release_date : 'N/A'}`;
+    releaseDate.textContent = `Released: ${movie.release_date ? movie.release_date : 'Released... at some point in time!'}`;
     app.movieDetails.appendChild(releaseDate);
     
     const overview = document.createElement('p');
-    overview.textContent = movie.overview ? movie.overview : 'No description available.';
+    overview.textContent = movie.overview ? movie.overview : 'No idea!';
     app.movieDetails.appendChild(overview);
     
 };
@@ -74,7 +75,7 @@ app.displayOriginalMovie = (movie) => {
 app.displaySimilarMovies = (movies) => {
     if (movies.length === 0) {
         const noResults = document.createElement('h3');
-        noResults.textContent = "No similar movies found.";
+        noResults.textContent = "Your movie choice stands alone.";
         app.similarMovies.appendChild(noResults);
         return;
     }
@@ -102,11 +103,11 @@ app.displaySimilarMovies = (movies) => {
     }
     
     const releaseDate = document.createElement('p');
-    releaseDate.textContent = `Released: ${movie.release_date ? movie.release_date : 'N/A'}`;
+    releaseDate.textContent = `Released: ${movie.release_date ? movie.release_date : 'Released... at some point in time!'}`;
     card.appendChild(releaseDate);
     
     const overview = document.createElement('p');
-    overview.textContent = movie.overview ? movie.overview : 'No description available.';
+    overview.textContent = movie.overview ? movie.overview : 'No idea!';
     card.appendChild(overview);
     
     
@@ -127,7 +128,7 @@ app.formEvent = () => {
         const movieTitle = app.input.value.trim();
         
         if (!movieTitle) {
-            app.movieTitle.textContent = "Please enter a movie title!";
+            app.movieTitle.textContent = "Enter the title of a movie you liked!";
             return;
         }
         
