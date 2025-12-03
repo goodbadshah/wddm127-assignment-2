@@ -146,3 +146,5 @@ if (document.readyState === "loading") {
 } else {
     app.init();
 }
+
+// Paul! I'm in tears bro. I never thought I'd be able to make this thing work. But your consistent exercises helped me to understand this stuff better. Yeah, I had to leverage our old exercises and yeah I had to search a shit ton to make things work (the whole display block and hidden thing was a nightmare!)... but man... I made my first functioning app :))) Thank you SO much!! Looking forward to building more. Sincerely, Ali the developer :))
